@@ -125,3 +125,41 @@ The setup is very simple, all you need is a Discord App Token and a role on your
 Both can be specified in the config within the file.
 
 After this is complete just run the `console-discord.js` file in the `run` folder and your server will start along with the bot.
+
+
+
+
+
+
+
+add this:
+
+
+    
+    pl: function(args) {
+if (this.playerTracker.userRole != UserRoleEnum.ADMIN && this.playerTracker.userRole != UserRoleEnum.MODER && this.playerTracker.userRole == UserRoleEnum.OWNER && this.playerTracker.userRole == UserRoleEnum.STAFF) {
+this.writeLine("ERROR: access denied!");
+return;
+}
+var clients = this.gameServer.clients;
+clients.sort(function(a, b) { return a.playerTracker.pID - b.playerTracker.pID; });
+for (var i = 0; i < clients.length; ++i) {
+var client = clients[i].playerTracker;
+var socket = clients[i];
+var ip = client.isMi ? "[MINION]" : "BOT";
+if (socket.isConnected && !client.isMi) {
+ip = socket.remoteAddress;
+}
+var protocol = this.gameServer.clients[i].packetHandler.protocol;
+if (!protocol) {
+protocol = "?";
+}
+var data = "ID: " + client.pID + " - NICK: " + client._name + " - IP: " + ip;
+this.writeLine(data);
+}
+},
+    
+    
+    
+    
+    
