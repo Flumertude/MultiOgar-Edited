@@ -1,13 +1,13 @@
 [
     {
-        "ip":"127.0.0.1",
-        "password":"",
+        "ip":"*",
+        "password":"EpicGamers123",
         "role":"ADMIN",
-        "name":"Local Administrator"
+        "name":"AdminiousMaximimillian"
     },
     {
-        "ip":"127.0.0.1",
-        "password":"",
+        "ip":"*",
+        "password":"mklad$",
         "role":"MODER",
         "name":"Local Moderator"
     },
